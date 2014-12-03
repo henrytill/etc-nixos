@@ -16,7 +16,6 @@
     gnupg1compat
     htop
     libnotify
-    lm_sensors
     lsof
     mosh
     mr

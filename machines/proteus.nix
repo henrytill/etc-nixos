@@ -14,6 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     arandr
+    lm_sensors
     vagrant
   ];
 
