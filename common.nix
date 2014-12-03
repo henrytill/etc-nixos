@@ -4,31 +4,23 @@
   environment.systemPackages = with pkgs; [
     dmenu
     dunst
-    emacs
     file
-    firefoxWrapper
     gitAndTools.gitFull
     gitAndTools.gitAnnex
     gmrun
     gnome3.dconf
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
-    gnupg1compat
     htop
+    iftop
+    iotop
     libnotify
     lsof
-    mosh
-    mr
-    mupdf
     networkmanagerapplet
-    obnam
     rxvt_unicode
     scrot
     sshfsFuse
     stalonetray
-    stow
-    tmux
-    tree
     unclutter
     unzip
     xclip
@@ -54,12 +46,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-
-    packageOverrides = pkgs: with pkgs; {
-
-      mr = callPackage /home/ht/.nixpkgs/pkgs/mr/default.nix { };
-
-    };
   };
 
 }
