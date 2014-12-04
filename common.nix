@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    debootstrap
     dmenu
     dunst
     file
@@ -11,6 +12,7 @@
     gnome3.dconf
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
+    gtk-engine-murrine
     htop
     iftop
     iotop
@@ -27,8 +29,6 @@
     xscreensaver
     zile
   ];
-
-  environment.variables.GTK_DATA_PREFIX="${pkgs.gnome3.gnome_themes_standard}";
 
   fonts = {
     enableFontConfig = true;
