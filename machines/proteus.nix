@@ -12,6 +12,7 @@
   boot.loader.grub.enable = true;
 
   environment.systemPackages = with pkgs; [
+    acpi
     arandr
     lm_sensors
     vagrant
