@@ -51,6 +51,7 @@
     enable = true;
     layout = "us";
     synaptics.enable = true;
+    synaptics.palmDetect = true;
     windowManager.default = "xmonad";
     windowManager.xmonad.enable = true;
     windowManager.xmonad.enableContribAndExtras = true;
