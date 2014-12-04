@@ -4,7 +4,6 @@
   imports =
     [ ../hardware-configuration.nix
       ../common.nix
-      <nixos/modules/programs/virtualbox.nix>
     ];
 
   boot.cleanTmpDir = true;
@@ -36,6 +35,7 @@
     serverAddress = "ht-mac-mini";
   };
   services.thinkfan.enable = true;
+  services.virtualboxHost.enable = true;
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
