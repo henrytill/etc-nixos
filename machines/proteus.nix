@@ -33,6 +33,7 @@
   services.acpid.enable = true;
   services.openssh.enable = true;
   services.synergy.client = {
+    autoStart = false;
     enable = true;
     screenName = "proteus";
     serverAddress = "ht-mac-mini";
