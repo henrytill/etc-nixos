@@ -18,6 +18,8 @@
     vagrant
   ];
 
+  fileSystems."/".options = "defaults,noatime,discard";
+
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
 
