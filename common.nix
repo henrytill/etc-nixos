@@ -19,12 +19,13 @@
     libnotify
     lsof
     networkmanagerapplet
-    rxvt_unicode
+    rxvt_unicode_with-plugins
     scrot
     sshfsFuse
     stalonetray
     unclutter
     unzip
+    urxvt_perls
     xclip
     xscreensaver
     zile
