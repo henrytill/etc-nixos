@@ -36,7 +36,7 @@
     autoStart = false;
     enable = true;
     screenName = "proteus";
-    serverAddress = "ht-mac-mini";
+    serverAddress = "nereus";
   };
   services.thinkfan.enable = true;
   services.virtualboxHost.enable = true;
