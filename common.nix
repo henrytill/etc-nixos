@@ -6,8 +6,8 @@
     dmenu
     dunst
     file
-    gitAndTools.gitFull
     gitAndTools.gitAnnex
+    gitAndTools.gitFull
     gmrun
     gnome3.dconf
     gnome3.gnome_icon_theme
@@ -52,13 +52,9 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-
     packageOverrides = pkgs: with pkgs; rec {
-
-      dunst = stdenv.lib.overrideDerivation pkgs.dunst (oldAttrs: {
-        patchPhase = null;
-      });
-
+      dunst = stdenv.lib.overrideDerivation pkgs.dunst
+        (oldAttrs: { patchPhase = null; });
     };
   };
 
