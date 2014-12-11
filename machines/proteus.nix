@@ -45,6 +45,7 @@
     desktopManager.xterm.enable = false;
     displayManager.lightdm.enable = true;
     displayManager.sessionCommands = ''
+      [ -f ~/.profile ] && source ~/.profile
       xset b off
       xsetroot -solid "#eee8d5" -cursor_name left_ptr
       xscreensaver -no-splash &
