@@ -6,7 +6,6 @@
     dmenu
     dunst
     file
-    gitAndTools.gitAnnex
     gitAndTools.gitFull
     gmrun
     gnome3.dconf
