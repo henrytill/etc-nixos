@@ -20,6 +20,11 @@
 
   fileSystems."/".options = "defaults,noatime,discard";
 
+  fileSystems."/mnt/nereus" = {
+    device = "nereus.home:/Users/ht";
+    fsType = "nfs";
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
 
@@ -56,6 +61,7 @@
     layout = "us";
     synaptics.enable = true;
     synaptics.palmDetect = true;
+    vaapiDrivers = [ pkgs.vaapiIntel ];
     windowManager.default = "xmonad";
     windowManager.xmonad.enable = true;
     windowManager.xmonad.enableContribAndExtras = true;
