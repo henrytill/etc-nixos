@@ -57,11 +57,7 @@
     ];
   };
 
-  nix.binaryCaches =
-    [ "http://cache.nixos.org"
-      "http://hydra.nixos.org"
-    ];
-
+  nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
 
   nixpkgs.config = {
