@@ -21,7 +21,7 @@
   fileSystems."/".options = "defaults,noatime,discard";
 
   fileSystems."/mnt/nereus" = {
-    device = "nereus.home:/Users/ht";
+    device = "nereus.home:/srv/nfs/";
     fsType = "nfs";
   };
 
