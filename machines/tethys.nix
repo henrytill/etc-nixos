@@ -1,27 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ../hardware-configuration.nix
-      ../common.nix
-    ];
+  imports = [ ../common.nix ];
 
   boot.cleanTmpDir = true;
-  boot.kernel.sysctl = { "vm.swappiness" = 10; };
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.enable = true;
 
-  fileSystems."/".options = "defaults,noatime";
-  
+  deployment.targetEnv = "virtualbox";
+  deployment.virtualbox.memorySize = 2048;
+
   networking = {
-    hostName = "wintermute";
+    hostName = "tethys";
     networkmanager.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
-  services.virtualbox.enable = true;
+  services.virtualboxGuest.enable = true;
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
@@ -54,5 +49,4 @@
   };
 
   virtualisation.docker.enable = true;
-
 }
