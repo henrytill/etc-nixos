@@ -36,10 +36,6 @@ with lib;
 
   programs.bash = {
     interactiveShellInit = ''
-      if [ -d "$HOME/.opam" -a -n "$(type -P opam)" ]; then
-          . "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
-      fi
-
       p() {
           clear
           echo 'Current Profile: ' && readlink "$HOME/.nix-profile"
