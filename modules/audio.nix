@@ -2,9 +2,16 @@
 
 with lib;
 
+let
+
+  cfg = config.sound.godMode;
+
+in
+
 {
   options = {
     sound.godMode = {
+
       enable = mkOption {
         type = types.bool;
         default = false;
@@ -15,7 +22,7 @@ with lib;
         default = true;
       };
 
-      firewire.enable = mkOption {
+      ffado.enable = mkOption {
         type = types.bool;
         default = false;
       };
@@ -23,12 +30,12 @@ with lib;
     };
   };
 
-  config = mkIf (config.sound.enable && config.sound.godMode.enable) {
+  config = mkIf (config.sound.enable && cfg.enable) {
 
     boot = {
       kernel.sysctl = { "vm.swappiness" = 10; };
       kernelModules =
-        if config.sound.godMode.alsaSeq.enable then
+        if cfg.alsaSeq.enable then
           [ "snd-seq"
             "snd-rawmidi"
           ]
@@ -39,6 +46,11 @@ with lib;
         echo 2048 > /proc/sys/dev/hpet/max-user-freq
       '';
     };
+
+    environment.systemPackages = with pkgs;
+      if cfg.ffado.enable then
+        [ pkgs.ffado ]
+      else [ ];
 
     powerManagement.cpuFreqGovernor = "performance";
 
@@ -51,7 +63,7 @@ with lib;
 
     services.udev = {
       packages =
-        if config.sound.godMode.firewire.enable then
+        if cfg.ffado.enable then
           [ pkgs.ffado ]
         else [ ];
 
