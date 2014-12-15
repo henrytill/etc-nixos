@@ -3,7 +3,7 @@
 {
   imports =
     [ ../hardware-configuration.nix
-      ../common.nix
+      ../desktop.nix
     ];
 
   boot.cleanTmpDir = true;
@@ -28,15 +28,9 @@
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
 
-  networking = {
-    hostName = "proteus";
-    networkmanager.enable = true;
-  };
-
-  security.sudo.wheelNeedsPassword = false;
+  networking.hostName = "proteus";
 
   services.acpid.enable = true;
-  services.openssh.enable = true;
   services.synergy.client = {
     autoStart = false;
     enable = true;
@@ -46,37 +40,11 @@
   services.thinkfan.enable = true;
   services.virtualboxHost.enable = true;
   services.xserver = {
-    desktopManager.default = "none";
-    desktopManager.xterm.enable = false;
-    displayManager.lightdm.enable = true;
-    displayManager.sessionCommands = ''
-      [ -f ~/.profile ] && source ~/.profile
-      xset b off
-      xsetroot -solid "#eee8d5" -cursor_name left_ptr
-      xscreensaver -no-splash &
-      unclutter -idle 1 &
-      nm-applet &
-    '';
-    enable = true;
-    layout = "us";
     synaptics.enable = true;
     synaptics.palmDetect = true;
     vaapiDrivers = [ pkgs.vaapiIntel ];
-    windowManager.default = "xmonad";
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.enableContribAndExtras = true;
     xkbOptions = "ctrl:nocaps";
   };
 
-  time.timeZone = "America/New_York";
-
-  users.extraUsers.ht = {
-    createHome = true;
-    description = "Henry Till";
-    extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
-    group = "users";
-    home = "/home/ht";
-    useDefaultShell = true;
-  };
-
+  users.extraUsers.ht.extraGroups= [ "vboxusers" ];
 }

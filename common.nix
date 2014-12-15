@@ -1,70 +1,67 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 {
   environment.systemPackages = with pkgs; [
     debootstrap
-    dmenu
-    dunst
     file
     gitAndTools.gitFull
-    gmrun
-    gnome3.dconf
-    gnome3.gnome_icon_theme
-    gnome3.gnome_themes_standard
-    gtk-engine-murrine
     htop
     iftop
     iotop
-    libnotify
     lsof
-    networkmanagerapplet
-    rxvt_unicode_with-plugins
-    scrot
+    mr
+    obnam
     sshfsFuse
-    stalonetray
-    unclutter
+    stow
+    tmux
+    tree
     unzip
-    urxvt_perls
-    xclip
-    xscreensaver
+    wget
+    xz
     zile
   ];
 
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fontconfig.antialias = true;
-    fontconfig.defaultFonts.monospace = [ "Source Code Pro" ];
-    fontconfig.defaultFonts.sansSerif = [ "Source Sans Pro" ];
-    fontconfig.defaultFonts.serif = [ "Source Serif Pro" ];
-    fontconfig.enable = true;
-    fontconfig.hinting.autohint = false;
-    fontconfig.hinting.enable = true;
-    fontconfig.hinting.style = "slight";
-    fontconfig.includeUserConf = false;
-    fontconfig.subpixel.lcdfilter = "default";
-    fontconfig.subpixel.rgba = "rgb";
-    fontconfig.ultimate.enable = false;
-    fonts = with pkgs; [
-      dejavu_fonts
-      liberation_ttf
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
-      terminus_font
-      ubuntu_font_family
-    ];
-  };
+  environment.variables =
+    { EDITOR = mkOverride 0 "zile"; };
 
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: with pkgs; rec {
-      dunst = stdenv.lib.overrideDerivation pkgs.dunst
-        (oldAttrs: { patchPhase = null; });
-    };
+    packageOverrides = import ./overrides.nix;
   };
 
+  programs.bash = {
+    interactiveShellInit = ''
+      if [ -d "$HOME/.opam" -a -n "$(type -P opam)" ]; then
+          . "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
+      fi
+
+      p() {
+          clear
+          echo 'Current Profile: ' && readlink "$HOME/.nix-profile"
+          echo && echo 'Installed:' && nix-env -q
+      }
+    '';
+
+    shellAliases = {
+      htop = "TERM=xterm htop";
+      l = "clear && pwd && ls -lh";
+      la = "clear && pwd && ls -lah";
+      lf = "ls -aF";
+      ll = "ls -la";
+      llt = "ls -lat";
+      ls = "ls --color=tty";
+      lt = "ls -lt";
+      restart = "systemctl restart";
+      start = "systemctl start";
+      status = "systemctl status";
+      stop = "systemctl stop";
+      u = "cd .. && l";
+      which = "type -P";
+    };
+  };
 }
