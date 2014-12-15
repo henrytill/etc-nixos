@@ -1,8 +1,2 @@
-/*
-!*.gitignore
-!audio.nix
-!common.nix
-!desktop.nix
-!machines
-!network.nix
-!overrides.nix
+configuration.nix
+hardware-configuration.nix

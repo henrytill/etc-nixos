@@ -3,6 +3,8 @@
 with lib;
 
 {
+  imports = import ./modules/module-list.nix;
+
   environment.systemPackages = with pkgs; [
     debootstrap
     file
