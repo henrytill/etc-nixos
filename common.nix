@@ -33,7 +33,7 @@ with lib;
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = import ./overrides.nix;
+    packageOverrides = import ./overrides;
   };
 
   programs.bash = {
