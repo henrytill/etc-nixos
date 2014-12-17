@@ -67,7 +67,11 @@ in
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-    displayManager.lightdm.enable = true;
+    displayManager.slim.enable = true;
+    displayManager.slim.theme = pkgs.fetchurl {
+      url = "https://github.com/jagajaga/nixos-slim-theme/archive/Final.tar.gz";
+      sha256 = "4cab5987a7f1ad3cc463780d9f1ee3fbf43603105e6a6e538e4c2147bde3ee6b";
+    };
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb ${xdefaults}
       ${pkgs.xorg.xset}/bin/xset b off
@@ -78,9 +82,8 @@ in
     '';
     enable = true;
     layout = "us";
-    windowManager.default = "xmonad";
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.enableContribAndExtras = true;
+    windowManager.default = "i3";
+    windowManager.i3.enable = true;
   };
 
   sound.godMode.enable = false;
