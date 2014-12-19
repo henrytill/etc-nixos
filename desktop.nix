@@ -22,11 +22,11 @@ in
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
     gtk-engine-murrine
+    i3status
     libnotify
     networkmanagerapplet
     rxvt_unicode_with-plugins
     scrot
-    stalonetray
     unclutter
     urxvt_perls
     xclip
@@ -61,6 +61,8 @@ in
 
   networking.networkmanager.enable = true;
 
+  nixpkgs.config.dmenu.enableXft = true;
+
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
@@ -75,7 +77,7 @@ in
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb ${xdefaults}
       ${pkgs.xorg.xset}/bin/xset b off
-      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#eee8d5" -cursor_name left_ptr
+      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#93a1a1"
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &
       ${pkgs.unclutter}/bin/unclutter -idle 1 &
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
