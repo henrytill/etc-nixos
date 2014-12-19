@@ -3,10 +3,10 @@
 let
 
   xdefaults = pkgs.substituteAll {
-      name = "xrbd.config";
-      src = ./settings/xrdb.config;
+    name = "xrbd.config";
+    src = ./settings/xrdb.config;
 
-      inherit (pkgs) xdg_utils;
+    inherit (pkgs) xdg_utils;
   };
 
 in
@@ -17,6 +17,7 @@ in
   environment.systemPackages = with pkgs; [
     dmenu
     dunst
+    firefoxWrapper
     gmrun
     gnome3.dconf
     gnome3.gnome_icon_theme
@@ -24,6 +25,7 @@ in
     gtk-engine-murrine
     i3status
     libnotify
+    mupdf
     networkmanagerapplet
     rxvt_unicode_with-plugins
     scrot
@@ -31,6 +33,7 @@ in
     urxvt_perls
     xclip
     xscreensaver
+    youtube-dl
   ];
 
   fonts = {
@@ -61,7 +64,13 @@ in
 
   networking.networkmanager.enable = true;
 
-  nixpkgs.config.dmenu.enableXft = true;
+  nixpkgs.config = {
+    dmenu.enableXft = true;
+    firefox = {
+      enableAdobeFlash = true;
+      enableGoogleTalkPlugin = true;
+    };
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
