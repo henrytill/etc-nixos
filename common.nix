@@ -22,12 +22,14 @@ with lib;
   environment.systemPackages = with pkgs; [
     debootstrap
     file
-    gitAndTools.gitFull
+    gnumake
+    gnupg1compat
     htop
     iftop
     iotop
     lsof
     mr
+    mosh
     obnam
     sshfsFuse
     stow
@@ -36,11 +38,12 @@ with lib;
     unzip
     wget
     xz
-    zile
-  ];
-
-  environment.variables =
-    { EDITOR = mkOverride 0 "zile"; };
+  ] ++ (if config.services.xserver.enable then
+    [ gitAndTools.gitFull ]
+  else
+    [ (gitAndTools.gitFull.override { guiSupport = false; })
+      (pinentry.override { useGtk = false; })
+    ]);
 
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
