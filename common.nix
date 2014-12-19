@@ -60,6 +60,7 @@ with lib;
     '';
 
     shellAliases = {
+      e = "$EDITOR";
       htop = "TERM=xterm htop";
       l = "clear && pwd && ls -lh";
       la = "clear && pwd && ls -lah";
@@ -76,4 +77,6 @@ with lib;
       which = "type -P";
     };
   };
+
+  programs.emacs.enable = true;
 }
