@@ -5,6 +5,20 @@ with lib;
 {
   imports = import ./modules/module-list.nix;
 
+  environment.etc."bashrc.local".text = ''
+    printf "\033]0;$USER@$HOSTNAME:\007"
+
+    update_title () {
+        printf "\033]0;$USER@$HOSTNAME: $BASH_COMMAND\007"
+    }
+
+    case "$TERM" in
+    xterm*|rxvt*)
+        trap update_title DEBUG
+        ;;
+    esac
+  '';
+
   environment.systemPackages = with pkgs; [
     debootstrap
     file
