@@ -1,1 +1,4 @@
-[ ./audio.nix ]
+[
+  ./audio.nix
+  ./emacs.nix
+]
