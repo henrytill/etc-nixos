@@ -86,7 +86,6 @@ in
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb ${xdefaults}
       ${pkgs.xorg.xset}/bin/xset b off
-      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#93a1a1"
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &
       ${pkgs.unclutter}/bin/unclutter -idle 1 &
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
