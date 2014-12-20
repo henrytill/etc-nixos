@@ -6,17 +6,19 @@ with lib;
   imports = import ./modules/module-list.nix;
 
   environment.etc."bashrc.local".text = ''
-    printf "\033]0;$USER@$HOSTNAME:\007"
+    if [ -z "$IN_NIX_SHELL" ]; then
+        printf "\e]0;$USER@$HOSTNAME:\a"
 
-    update_title () {
-        printf "\033]0;$USER@$HOSTNAME: $BASH_COMMAND\007"
-    }
+        update_title () {
+            printf "\e]0;$USER@$HOSTNAME: $BASH_COMMAND\a"
+        }
 
-    case "$TERM" in
-    xterm*|rxvt*)
-        trap update_title DEBUG
-        ;;
-    esac
+        case "$TERM" in
+        xterm*|rxvt*)
+            trap update_title DEBUG
+            ;;
+        esac
+    fi
   '';
 
   environment.systemPackages = with pkgs; [
