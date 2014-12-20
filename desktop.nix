@@ -89,6 +89,7 @@ in
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &
       ${pkgs.unclutter}/bin/unclutter -idle 1 &
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
+      ${pkgs.emacs}/bin/emacs --daemon
     '';
     enable = true;
     layout = "us";
