@@ -46,5 +46,5 @@
     xkbOptions = "ctrl:nocaps";
   };
 
-  users.extraUsers.ht.extraGroups= [ "vboxusers" ];
+  users.extraUsers.ht.extraGroups = [ "vboxusers" ];
 }
