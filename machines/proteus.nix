@@ -20,10 +20,10 @@
 
   fileSystems."/".options = "defaults,noatime,discard";
 
-  fileSystems."/mnt/nereus" = {
-    device = "nereus.home:/srv/nfs/";
-    fsType = "nfs";
-  };
+  # fileSystems."/mnt/nereus" = {
+  #   device = "nereus.home:/srv/nfs/";
+  #   fsType = "nfs";
+  # };
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
