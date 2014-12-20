@@ -40,12 +40,12 @@ with lib;
     unzip
     wget
     xz
-  ] ++ (if config.services.xserver.enable then
-    [ gitAndTools.gitFull ]
-  else
-    [ (gitAndTools.gitFull.override { guiSupport = false; })
-      (pinentry.override { useGtk = false; })
-    ]);
+  ] ++ (if config.services.xserver.enable then [
+    gitAndTools.gitFull
+  ] else [
+    (gitAndTools.gitFull.override { guiSupport = false; })
+    (pinentry.override { useGtk = false; })
+  ]);
 
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
