@@ -78,6 +78,7 @@ in
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
+    displayManager.desktopManagerHandlesLidAndPower = false;
     displayManager.slim.enable = true;
     displayManager.slim.theme = pkgs.fetchurl {
       url = "https://github.com/jagajaga/nixos-slim-theme/archive/Final.tar.gz";
