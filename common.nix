@@ -7,14 +7,13 @@ with lib;
 
   environment.etc."bashrc.local".text = ''
     if [ -z "$IN_NIX_SHELL" ]; then
-        printf "\e]0;$USER@$HOSTNAME:\a"
-
         update_title () {
             printf "\e]0;$USER@$HOSTNAME: $BASH_COMMAND\a"
         }
 
         case "$TERM" in
         xterm*|rxvt*)
+            printf "\e]0;$USER@$HOSTNAME:\a"
             trap update_title DEBUG
             ;;
         esac
