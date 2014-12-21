@@ -50,7 +50,7 @@ in
     fontconfig.includeUserConf = false;
     fontconfig.subpixel.lcdfilter = "default";
     fontconfig.subpixel.rgba = "rgb";
-    fontconfig.ultimate.enable = false;
+    fontconfig.ultimate.enable = true;
     fonts = with pkgs; [
       dejavu_fonts
       liberation_ttf
