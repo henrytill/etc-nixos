@@ -23,6 +23,7 @@ in
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
     gtk-engine-murrine
+    i3lock
     i3status
     libnotify
     mupdf
@@ -32,7 +33,6 @@ in
     unclutter
     urxvt_perls
     xclip
-    xscreensaver
     youtube-dl
   ];
 
@@ -86,7 +86,6 @@ in
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb ${xdefaults}
       ${pkgs.xorg.xset}/bin/xset b off
-      ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &
       ${pkgs.unclutter}/bin/unclutter -idle 1 &
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
       ${pkgs.emacs}/bin/emacs --daemon
