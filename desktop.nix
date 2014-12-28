@@ -106,6 +106,7 @@ in
     extraGroups = [ "wheel" "networkmanager" ];
     group = "users";
     home = "/home/ht";
+    uid = 1000;
     useDefaultShell = true;
   };
 }
