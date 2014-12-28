@@ -97,8 +97,6 @@ in
     windowManager.i3.enable = true;
   };
 
-  sound.godMode.enable = false;
-
   time.timeZone = "America/New_York";
 
   users.extraUsers.ht = {
