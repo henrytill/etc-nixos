@@ -21,7 +21,6 @@ with lib;
   '';
 
   environment.systemPackages = with pkgs; [
-    debootstrap
     file
     gnumake
     gnupg1compat
