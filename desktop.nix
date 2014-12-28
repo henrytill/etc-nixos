@@ -32,6 +32,7 @@ in
     scrot
     unclutter
     urxvt_perls
+    vlc
     xclip
     youtube-dl
   ];
