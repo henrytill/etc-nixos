@@ -18,7 +18,6 @@ in
     dmenu
     dunst
     firefoxWrapper
-    gmrun
     gnome3.dconf
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
