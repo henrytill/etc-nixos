@@ -38,6 +38,7 @@ with lib;
     unzip
     wget
     xz
+    zile
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
   ] else [
