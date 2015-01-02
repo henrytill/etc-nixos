@@ -40,9 +40,6 @@ in
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fontconfig.antialias = true;
-    fontconfig.defaultFonts.monospace = [ "Source Code Pro" ];
-    fontconfig.defaultFonts.sansSerif = [ "Source Sans Pro" ];
-    fontconfig.defaultFonts.serif = [ "Source Serif Pro" ];
     fontconfig.enable = true;
     fontconfig.hinting.autohint = false;
     fontconfig.hinting.enable = true;
@@ -54,11 +51,6 @@ in
     fonts = with pkgs; [
       dejavu_fonts
       liberation_ttf
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
-      terminus_font
-      ubuntu_font_family
     ];
   };
 
