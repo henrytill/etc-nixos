@@ -26,10 +26,8 @@ in
     libnotify
     mupdf
     networkmanagerapplet
-    rxvt_unicode_with-plugins
     scrot
     unclutter
-    urxvt_perls
     vlc
     xclip
     youtube-dl
