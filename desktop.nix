@@ -21,7 +21,6 @@ in
     gnome3.dconf
     gnome3.gnome_icon_theme
     gnome3.gnome_themes_standard
-    gtk-engine-murrine
     i3lock
     i3status
     libnotify
