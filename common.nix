@@ -36,6 +36,7 @@ with lib;
     tmux
     tree
     unzip
+    weechat
     wget
     xz
     zile
