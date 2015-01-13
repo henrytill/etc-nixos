@@ -1,16 +1,5 @@
 { config, pkgs, ... }:
 
-let
-
-  xdefaults = pkgs.substituteAll {
-    name = "xrbd.config";
-    src = ./settings/xrdb.config;
-
-    inherit (pkgs) xdg_utils;
-  };
-
-in
-
 {
   imports = [ ./common.nix ];
 
@@ -74,7 +63,6 @@ in
       sha256 = "4cab5987a7f1ad3cc463780d9f1ee3fbf43603105e6a6e538e4c2147bde3ee6b";
     };
     displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb ${xdefaults}
       ${pkgs.xorg.xset}/bin/xset b off
       ${pkgs.unclutter}/bin/unclutter -idle 1 &
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
