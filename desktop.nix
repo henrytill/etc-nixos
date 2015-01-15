@@ -42,14 +42,6 @@
 
   networking.networkmanager.enable = true;
 
-  nixpkgs.config = {
-    dmenu.enableXft = true;
-    firefox = {
-      enableAdobeFlash = true;
-      enableGoogleTalkPlugin = true;
-    };
-  };
-
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;

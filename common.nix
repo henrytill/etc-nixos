@@ -50,10 +50,7 @@ with lib;
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = import ./overrides;
-  };
+  nixpkgs.config = import ./nixpkgs/config.nix;
 
   programs.bash = {
     interactiveShellInit = ''
