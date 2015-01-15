@@ -6,5 +6,5 @@
     enableGoogleTalkPlugin = true;
   };
 
-  packageOverrides = import ../overrides;
+  packageOverrides = import ./overrides.nix;
 }
