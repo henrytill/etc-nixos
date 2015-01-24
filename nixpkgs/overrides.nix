@@ -1,5 +1,1 @@
-pkgs:
-
-with pkgs;
-
-rec { }
+super: let self = super.pkgs; in { }
