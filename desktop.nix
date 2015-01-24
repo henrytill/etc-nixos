@@ -16,6 +16,7 @@
     mupdf
     networkmanagerapplet
     scrot
+    tigervnc
     unclutter
     vlc
     xclip
