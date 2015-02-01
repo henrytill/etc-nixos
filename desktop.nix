@@ -7,14 +7,10 @@
     dmenu
     dunst
     firefoxWrapper
-    gnome3.dconf
-    gnome3.gnome_icon_theme
-    gnome3.gnome_themes_standard
     i3lock
     i3status
     libnotify
     mupdf
-    networkmanagerapplet
     scrot
     tigervnc
     unclutter
@@ -42,7 +38,7 @@
     ];
   };
 
-  networking.networkmanager.enable = true;
+  networking.connman.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -73,7 +69,7 @@
   users.extraUsers.ht = {
     createHome = true;
     description = "Henry Till";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" ];
     group = "users";
     home = "/home/ht";
     uid = 1000;
