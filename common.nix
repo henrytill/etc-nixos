@@ -63,7 +63,6 @@ with lib;
 
     shellAliases = {
       e = "$EDITOR";
-      htop = "TERM=xterm htop";
       l = "clear && pwd && ls -lh";
       la = "clear && pwd && ls -lah";
       lf = "ls -aF";
