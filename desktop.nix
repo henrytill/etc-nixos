@@ -7,8 +7,8 @@
     dmenu
     dunst
     firefoxWrapper
+    gmrun
     i3lock
-    i3status
     libnotify
     mupdf
     scrot
@@ -16,6 +16,8 @@
     unclutter
     vlc
     xclip
+    xlibs.xmessage
+    xmonadEnv
     youtube-dl
   ];
 
@@ -52,16 +54,8 @@
       url = "https://github.com/jagajaga/nixos-slim-theme/archive/Final.tar.gz";
       sha256 = "4cab5987a7f1ad3cc463780d9f1ee3fbf43603105e6a6e538e4c2147bde3ee6b";
     };
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xset}/bin/xset b off
-      ${pkgs.unclutter}/bin/unclutter -idle 1 &
-      ${pkgs.networkmanagerapplet}/bin/nm-applet &
-      ${pkgs.emacs}/bin/emacs --daemon
-    '';
     enable = true;
     layout = "us";
-    windowManager.default = "i3";
-    windowManager.i3.enable = true;
   };
 
   time.timeZone = "America/New_York";
