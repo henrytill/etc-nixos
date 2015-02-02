@@ -8,6 +8,7 @@
     dunst
     firefoxWrapper
     gmrun
+    haskellEnv
     i3lock
     libnotify
     mupdf
@@ -17,7 +18,6 @@
     vlc
     xclip
     xlibs.xmessage
-    xmonadEnv
     youtube-dl
   ];
 

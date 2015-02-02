@@ -1,6 +1,8 @@
 super: let self = super.pkgs; in {
 
-  xmonadEnv = self.haskellngPackages.ghcWithPackages (p: with p; [
+  haskellEnv = self.haskellngPackages.ghcWithPackages (p: with p; [
+    cabal-install
+    cabal2nix
     xmobar
     xmonad
     xmonad-contrib
