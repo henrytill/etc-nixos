@@ -34,10 +34,6 @@ with lib;
     (pinentry.override { useGtk = false; })
   ]);
 
-  environment.variables = {
-    ASPELL_CONF = "dict-dir /run/current-system/sw/lib/aspell";
-  };
-
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
 
