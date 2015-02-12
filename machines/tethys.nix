@@ -5,9 +5,6 @@
 
   boot.cleanTmpDir = true;
 
-  deployment.targetEnv = "virtualbox";
-  deployment.virtualbox.memorySize = 2048;
-
   networking.hostName = "tethys";
 
   services.virtualboxGuest.enable = true;
