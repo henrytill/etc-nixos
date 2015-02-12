@@ -38,7 +38,10 @@
     serverAddress = "nereus";
   };
   services.thinkfan.enable = true;
-  services.virtualboxHost.enable = true;
+  services.virtualboxHost = {
+    enable = true;
+    enableHardening = false;
+  };
   services.xserver = {
     synaptics.enable = true;
     synaptics.palmDetect = true;
