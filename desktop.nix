@@ -56,6 +56,15 @@
     };
     enable = true;
     layout = "us";
+    windowManager.default = "xmonad";
+    windowManager.session =
+      [ { name = "xmonad";
+          start = ''
+            ${pkgs.haskellEnv}/bin/xmonad &
+            waitPID=$!
+          '';
+        }
+      ];
   };
 
   time.timeZone = "America/New_York";
