@@ -1,16 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ../desktop.nix ];
+  imports =
+    [ ../hardware-configuration.nix
+      ../desktop.nix
+    ];
 
   boot.cleanTmpDir = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "tethys";
-
-  services.virtualboxGuest.enable = true;
-  services.xserver.videoDrivers = [ "virtualbox" ];
-
-  users.extraUsers.ht.extraGroups = [ "docker" ];
-
-  virtualisation.docker.enable = true;
 }
