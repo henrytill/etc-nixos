@@ -12,9 +12,11 @@
     i3lock
     libnotify
     mupdf
+    rxvt_unicode_with-plugins
     scrot
     tigervnc
     unclutter
+    urxvt_perls
     vlc
     xclip
     xlibs.xmessage
