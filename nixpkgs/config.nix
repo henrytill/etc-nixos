@@ -1,6 +1,8 @@
 {
   allowUnfree = true;
 
+  dmenu.enableXft = true;
+
   firefox = {
     enableAdobeFlash = true;
     enableGoogleTalkPlugin = true;
