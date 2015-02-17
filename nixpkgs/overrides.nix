@@ -10,4 +10,6 @@ super: let self = super.pkgs; in {
     xmonad-extras
   ]);
 
+  mplus-outline-fonts = self.callPackage ./pkgs/mplus-outline-fonts {};
+
 }
