@@ -10,6 +10,8 @@ super: let self = super.pkgs; in {
     xmonad-extras
   ]);
 
+  compton-git = self.callPackage ./pkgs/compton/compton-git.nix {};
+
   mplus-outline-fonts = self.callPackage ./pkgs/mplus-outline-fonts {};
 
 }

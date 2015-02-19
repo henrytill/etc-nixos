@@ -4,7 +4,7 @@
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
-    compton
+    compton-git
     dmenu
     dunst
     firefoxWrapper
