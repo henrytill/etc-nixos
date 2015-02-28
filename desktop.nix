@@ -10,6 +10,7 @@
     firefoxWrapper
     gmrun
     haskellEnv
+    hsetroot
     i3lock
     libnotify
     mupdf
