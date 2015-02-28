@@ -12,5 +12,6 @@
 
   fileSystems."/".options = "defaults,noatime";
 
+  networking.enableIPv6 = false;
   networking.hostName = "tethys";
 }
