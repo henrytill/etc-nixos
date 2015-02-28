@@ -3,6 +3,7 @@
 {
   imports = [ ./common.nix ];
 
+  environment.pathsToLink = [ "/share/doc" ];
   environment.systemPackages = with pkgs; [
     compton-git
     dmenu
