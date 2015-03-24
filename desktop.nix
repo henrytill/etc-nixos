@@ -10,9 +10,11 @@
     dunst
     firefoxWrapper
     gmrun
+    gimp
     haskellEnv
     hsetroot
     i3lock
+    inkscape
     libnotify
     mupdf
     rxvt_unicode_with-plugins
