@@ -70,4 +70,13 @@ with lib;
   time.timeZone = "America/New_York";
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
+  users.extraUsers.ht = {
+    createHome = true;
+    description = "Henry Till";
+    extraGroups = [ "wheel" ];
+    group = "users";
+    home = "/home/ht";
+    uid = 1000;
+    useDefaultShell = true;
+  };
 }
