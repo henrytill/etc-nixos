@@ -48,8 +48,6 @@
 
   networking.connman.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;
-
   services.openssh.enable = true;
   services.xserver = {
     desktopManager.default = "none";

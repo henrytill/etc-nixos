@@ -3,8 +3,6 @@
 {
   imports = [ ./common.nix ];
 
-  security.sudo.wheelNeedsPassword = false;
-
   services.openssh.enable = true;
 
   time.timeZone = "America/New_York";
