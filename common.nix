@@ -37,11 +37,33 @@ with lib;
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
   nix.useChroot = true;
 
-  nixpkgs.config = import ./nixpkgs/config.nix;
+  nixpkgs.config = {
+    allowUnfree = true;
 
-  programs.zsh.enable = true;
+    dmenu.enableXft = true;
+
+    firefox = {
+      enableAdobeFlash = true;
+      enableGoogleTalkPlugin = true;
+    };
+
+    packageOverrides = super: let self = super.pkgs; in {
+      haskellEnv = self.haskellngPackages.ghcWithPackages (p: with p; [
+        cabal-install
+        cabal2nix
+        hlint
+        xmobar
+        xmonad
+        xmonad-contrib
+        xmonad-extras
+      ]);
+      compton-git = self.callPackage ./pkgs/compton/compton-git.nix {};
+      mplus-outline-fonts = self.callPackage ./pkgs/mplus-outline-fonts {};
+    };
+  };
 
   programs.emacs.enable = true;
+  programs.zsh.enable = true;
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 }
