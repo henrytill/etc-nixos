@@ -67,5 +67,7 @@ with lib;
 
   services.openssh.enable = true;
 
+  time.timeZone = "America/New_York";
+
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 }

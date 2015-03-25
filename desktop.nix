@@ -70,8 +70,6 @@
       ];
   };
 
-  time.timeZone = "America/New_York";
-
   users.extraUsers.ht = {
     createHome = true;
     description = "Henry Till";
