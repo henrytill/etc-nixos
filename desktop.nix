@@ -48,7 +48,6 @@
 
   networking.connman.enable = true;
 
-  services.openssh.enable = true;
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;

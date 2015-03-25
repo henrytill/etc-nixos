@@ -3,8 +3,6 @@
 {
   imports = [ ./common.nix ];
 
-  services.openssh.enable = true;
-
   time.timeZone = "America/New_York";
 
   users.extraUsers.ht = {
