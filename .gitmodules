@@ -1,0 +1,3 @@
+[submodule "modules/musnix"]
+	path = modules/musnix
+	url = git@github.com:musnix/musnix.git
