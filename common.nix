@@ -23,7 +23,7 @@ with lib;
     tmux
     tree
     unzip
-    weechat
+    weechat-minimal
     wget
     xz
     zile
@@ -59,6 +59,7 @@ with lib;
       ]);
       compton-git = self.callPackage ./pkgs/compton/compton-git.nix {};
       mplus-outline-fonts = self.callPackage ./pkgs/mplus-outline-fonts {};
+      weechat-minimal = self.callPackage ./pkgs/weechat/weechat-minimal.nix {};
     };
   };
 
