@@ -17,10 +17,10 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with stdenv.lib; {
-    homepage = "http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html";
     description = "M+ Outline Fonts";
+    homepage = http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/index-en.html;
     license = licenses.mit;
-    platforms = platforms.all;
     maintainers = with maintainers; [ henrytill ];
+    platforms = platforms.all;
   };
 }
