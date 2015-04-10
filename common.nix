@@ -34,7 +34,11 @@ with lib;
     (pinentry.override { gtk2 = null; })
   ]);
 
-  nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
+  nix.binaryCaches = [
+    "https://cache.nixos.org/"
+    "http://hydra.nixos.org/"
+    "http://hydra.cryp.to/"
+  ];
   nix.useChroot = true;
 
   nixpkgs.config = {
