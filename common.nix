@@ -31,7 +31,7 @@ with lib;
     gitAndTools.gitFull
   ] else [
     (gitAndTools.gitFull.override { guiSupport = false; })
-    (pinentry.override { useGtk = false; })
+    (pinentry.override { gtk2 = null; })
   ]);
 
   nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
