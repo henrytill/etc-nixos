@@ -14,6 +14,7 @@ with lib;
   ] else [
     (gitAndTools.gitFull.override { guiSupport = false; })
   ]);
+  environment.variables.EDITOR = mkOverride 0 "$EDITOR";
 
   nix.binaryCaches = [
     "https://cache.nixos.org/"
