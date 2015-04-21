@@ -64,7 +64,6 @@ with lib;
     };
   };
 
-  programs.emacs.enable = true;
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
