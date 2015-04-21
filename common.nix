@@ -60,7 +60,6 @@ with lib;
         xmonad-contrib
         xmonad-extras
       ]);
-      compton-git = self.callPackage ./pkgs/compton/compton-git.nix {};
     };
   };
 

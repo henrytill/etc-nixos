@@ -5,7 +5,6 @@
 
   environment.pathsToLink = [ "/share/doc" ];
   environment.systemPackages = with pkgs; [
-    compton-git
     dmenu
     dunst
     firefoxWrapper
