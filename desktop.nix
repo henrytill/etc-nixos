@@ -18,7 +18,6 @@
     fontconfig.ultimate.enable = true;
     fonts = with pkgs; [
       mplus-outline-fonts
-      terminus_font
     ];
   };
 
