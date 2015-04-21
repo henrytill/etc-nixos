@@ -6,31 +6,13 @@ with lib;
   imports = import ./modules/module-list.nix;
 
   environment.systemPackages = with pkgs; [
-    aspell
-    aspellDicts.en
-    file
     gnumake
-    gnupg1compat
-    htop
-    iftop
-    iotop
-    lsof
     mr
-    mosh
-    obnam
-    sshfsFuse
-    stow
-    tmux
-    tree
-    unzip
-    wget
-    xz
     zile
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
   ] else [
     (gitAndTools.gitFull.override { guiSupport = false; })
-    (pinentry.override { gtk2 = null; })
   ]);
 
   nix.binaryCaches = [
@@ -39,29 +21,6 @@ with lib;
     "http://hydra.cryp.to/"
   ];
   nix.useChroot = true;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-
-    dmenu.enableXft = true;
-
-    firefox = {
-      enableAdobeFlash = true;
-      enableGoogleTalkPlugin = true;
-    };
-
-    packageOverrides = super: let self = super.pkgs; in {
-      haskellEnv = self.haskellngPackages.ghcWithPackages (p: with p; [
-        cabal-install
-        cabal2nix
-        hlint
-        xmobar
-        xmonad
-        xmonad-contrib
-        xmonad-extras
-      ]);
-    };
-  };
 
   programs.zsh.enable = true;
 

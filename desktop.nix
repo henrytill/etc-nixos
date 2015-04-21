@@ -4,29 +4,6 @@
   imports = [ ./common.nix ];
 
   environment.pathsToLink = [ "/share/doc" ];
-  environment.systemPackages = with pkgs; [
-    dmenu
-    dunst
-    firefoxWrapper
-    gmrun
-    gimp
-    haskellEnv
-    hsetroot
-    i3lock
-    inkscape
-    libnotify
-    mupdf
-    rxvt_unicode_with-plugins
-    scrot
-    tigervnc
-    unclutter
-    urxvt_perls
-    vlc
-    xclip
-    xlibs.xmessage
-    youtube-dl
-  ];
-
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
@@ -54,11 +31,11 @@
     displayManager.lightdm.enable = true;
     enable = true;
     layout = "us";
-    windowManager.default = "xmonad";
+    windowManager.default = "xsession";
     windowManager.session =
-      [ { name = "xmonad";
+      [ { name = "xsession";
           start = ''
-            ${pkgs.haskellEnv}/bin/xmonad &
+            $HOME/.xsession
             waitPID=$!
           '';
         }
