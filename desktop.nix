@@ -3,7 +3,6 @@
 {
   imports = [ ./common.nix ];
 
-  environment.pathsToLink = [ "/share/doc" ];
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
