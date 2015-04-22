@@ -8,6 +8,7 @@ with lib;
   environment.systemPackages = with pkgs; [
     gnumake
     mr
+    stow
     zile
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
