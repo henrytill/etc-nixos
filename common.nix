@@ -20,7 +20,6 @@ with lib;
   nix.binaryCaches = [
     "https://cache.nixos.org/"
     "https://hydra.nixos.org/"
-    "http://hydra.cryp.to/"
   ];
   nix.useChroot = true;
 
