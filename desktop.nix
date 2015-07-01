@@ -32,10 +32,7 @@
     windowManager.default = "xsession";
     windowManager.session =
       [ { name = "xsession";
-          start = ''
-            $HOME/.xsession
-            waitPID=$!
-          '';
+          start = "";
         }
       ];
   };
