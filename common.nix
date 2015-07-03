@@ -7,6 +7,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     gnumake
+    gnupg
     mr
     stow
     zile
@@ -14,6 +15,7 @@ with lib;
     gitAndTools.gitFull
   ] else [
     (gitAndTools.gitFull.override { guiSupport = false; })
+    (pinentry.override { gtk2 = null; })
   ]);
   environment.variables.EDITOR = mkOverride 0 "$EDITOR";
 
