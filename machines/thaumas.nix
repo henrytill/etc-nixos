@@ -7,6 +7,7 @@
     ];
 
   boot.cleanTmpDir = true;
+  boot.kernelPackages = pkgs.linuxPackages_3_18;
   boot.kernelParams = [ "modprobe.blacklist=ehci_pci" ];
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.enable = true;
@@ -14,8 +15,8 @@
   networking.hostName = "thaumas";
 
   nixpkgs.config = {
-    packageOverrides = super: let self = super.pkgs; in {
-      linux = super.linux.override { extraConfig = "CHROME_PLATFORMS y\n"; };
+    packageOverrides = pkgs: {
+      linux_3_18 = pkgs.linux_3_18.override { extraConfig = "CHROME_PLATFORMS y\n"; };
     };
   };
 
