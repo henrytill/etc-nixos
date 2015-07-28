@@ -6,19 +6,20 @@
       ../desktop.nix
     ];
 
-  boot.cleanTmpDir = true;
-  boot.kernelPackages = pkgs.linuxPackages_3_18;
-  boot.kernelParams = [ "modprobe.blacklist=ehci_pci" ];
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.enable = true;
+  boot =
+    let
+      linux_chromebook = pkgs.linux.override
+        { extraConfig = "CHROME_PLATFORMS y\n"; };
+    in rec {
+      cleanTmpDir = true;
+      kernelPackages = pkgs.recurseIntoAttrs
+        (pkgs.linuxPackagesFor linux_chromebook kernelPackages);
+      kernelParams = [ "modprobe.blacklist=ehci_pci" ];
+      loader.grub.device = "/dev/sda";
+      loader.grub.enable = true;
+    };
 
   networking.hostName = "thaumas";
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      linux_3_18 = pkgs.linux_3_18.override { extraConfig = "CHROME_PLATFORMS y\n"; };
-    };
-  };
 
   services.acpid.enable = true;
   services.xserver = {
