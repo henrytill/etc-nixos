@@ -18,10 +18,6 @@ with lib;
     (pinentry.override { gtk2 = null; })
   ]);
 
-  nix.binaryCaches = [
-    "https://cache.nixos.org/"
-    "https://hydra.nixos.org/"
-  ];
   nix.useChroot = true;
 
   programs.zsh.enable = true;
