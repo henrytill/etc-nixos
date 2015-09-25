@@ -23,6 +23,7 @@
   networking.hostName = "thaumas";
 
   services.acpid.enable = true;
+  services.logind.extraConfig = "HandlePowerKey=ignore";
   services.xserver = {
     synaptics.enable = true;
     synaptics.palmDetect = true;
