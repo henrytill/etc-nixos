@@ -1,3 +1,6 @@
 [submodule "modules/musnix"]
 	path = modules/musnix
 	url = git@github.com:musnix/musnix.git
+[submodule "pkgs/dwm"]
+	path = pkgs/dwm
+	url = git@github.com:henrytill/dwm.git
