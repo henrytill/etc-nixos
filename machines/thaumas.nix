@@ -44,4 +44,9 @@ with lib;
     synaptics.tapButtons = false;
     synaptics.twoFingerScroll = true;
   };
+
+  sound.extraConfig = ''
+    defaults.pcm.!card PCH
+    defaults.pcm.!device 0
+  '';
 }
