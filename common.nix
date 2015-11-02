@@ -32,7 +32,6 @@ with lib;
     unzip
     vim
     wget
-    zile
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
   ] else [
