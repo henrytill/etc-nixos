@@ -6,10 +6,32 @@ with lib;
   imports = import ./modules/module-list.nix;
 
   environment.systemPackages = with pkgs; [
+    aspell
+    aspellDicts.en
+    boot
+    ed
+    emacs
+    file
     gnumake
     gnupg
+    htop
+    jdk
+    jq
+    leiningen
+    lsof
+    maven
     mr
+    ncdu
+    nix-repl
+    nodejs
+    rlwrap
+    scrot
     stow
+    tmux
+    tree
+    unzip
+    vim
+    wget
     zile
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull

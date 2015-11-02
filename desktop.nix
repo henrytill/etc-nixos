@@ -1,7 +1,26 @@
 { config, pkgs, ... }:
 
-{
+let
+
+  dwm-HEAD = pkgs.callPackage ./pkgs/dwm {};
+
+in {
   imports = [ ./common.nix ];
+
+  environment.systemPackages = with pkgs; [
+    conky
+    (dmenu.override { enableXft = true; })
+    dunst
+    dwm-HEAD
+    firefoxWrapper
+    ghostscript
+    graphviz
+    i3lock
+    libnotify
+    mupdf
+    rxvt_unicode_with-plugins
+    xlibs.xmodmap
+  ];
 
   fonts = {
     enableFontDir = true;
