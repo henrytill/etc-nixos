@@ -1,4 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 {
   imports =
@@ -19,6 +21,13 @@
       loader.grub.device = "/dev/sda";
       loader.grub.enable = true;
     };
+
+  fileSystems."/".options = concatStringsSep "," [
+    "ssd"
+    "space_cache"
+    "compress-force=zlib"
+    "noatime"
+  ];
 
   networking.hostName = "thaumas";
 
