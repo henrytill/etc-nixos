@@ -33,6 +33,11 @@ with lib;
 
   services.acpid.enable = true;
   services.logind.extraConfig = "HandlePowerKey=ignore";
+  services.redshift = {
+    enable = true;
+    latitude = "42";
+    longitude = "71";
+  };
   services.xserver = {
     synaptics.enable = true;
     synaptics.palmDetect = true;
