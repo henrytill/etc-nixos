@@ -31,8 +31,10 @@ with lib;
 
   networking.hostName = "thaumas";
 
-  services.acpid.enable = true;
-  services.logind.extraConfig = "HandlePowerKey=ignore";
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+    HandleLidSwitch=suspend
+  '';
   services.redshift = {
     enable = true;
     latitude = "42";
