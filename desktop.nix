@@ -19,6 +19,7 @@ in {
     libnotify
     mupdf
     rxvt_unicode_with-plugins
+    xsel
     xlibs.xmodmap
   ];
 
