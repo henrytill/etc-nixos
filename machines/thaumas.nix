@@ -2,7 +2,16 @@
 
 with lib;
 
-{
+let
+
+  xmodmaprc = pkgs.writeScript "xmodmaprc" ''
+    remove mod4 = Super_L
+    remove control = Control_L
+    add mod4 = Control_L
+    add control = Super_L
+  '';
+
+in {
   imports =
     [ ../hardware-configuration.nix
       ../desktop.nix
@@ -41,6 +50,9 @@ with lib;
     longitude = "71";
   };
   services.xserver = {
+    displayManager.sessionCommands = ''
+      xmodmap ${xmodmaprc}
+    '';
     synaptics.enable = true;
     synaptics.palmDetect = true;
     synaptics.tapButtons = false;

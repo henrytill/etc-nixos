@@ -47,12 +47,26 @@ in {
     desktopManager.xterm.enable = false;
     displayManager.desktopManagerHandlesLidAndPower = false;
     displayManager.lightdm.enable = true;
+    displayManager.sessionCommands = ''
+      if test -f "$HOME/.zprofile"; then
+          source "$HOME/.zprofile"
+      fi
+
+      xsetroot -solid "#5f5f5f"
+
+      xset b off
+
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
     enable = true;
     layout = "us";
-    windowManager.default = "xsession";
+    windowManager.default = "dwm";
     windowManager.session =
-      [ { name = "xsession";
-          start = "";
+      [ { name = "dwm";
+          start = ''
+            ${dwm-HEAD}/bin/dwm &
+            waitPID=$!
+          '';
         }
       ];
   };
