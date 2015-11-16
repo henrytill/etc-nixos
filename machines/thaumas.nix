@@ -4,7 +4,7 @@ with lib;
 
 let
 
-  conkyrc = pkgs.writeScript "conkyrc" ''
+  conkyrc = pkgs.writeText "conkyrc" ''
     out_to_console yes
     out_to_x no
     background no
@@ -16,7 +16,7 @@ let
     ''${addr wlp1s0}    ''${battery_percent BAT0}% (''${battery_time BAT0})    ''${acpitemp}°    ''${fs_free /}    $memperc% ($mem)    ''${time %a %b %d %I:%M %P}
   '';
 
-  xmodmaprc = pkgs.writeScript "xmodmaprc" ''
+  xmodmaprc = pkgs.writeText "xmodmaprc" ''
     remove mod4 = Super_L
     remove control = Control_L
     add mod4 = Control_L
