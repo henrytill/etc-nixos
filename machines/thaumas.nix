@@ -66,7 +66,7 @@ in {
   };
   services.xserver = {
     displayManager.sessionCommands = ''
-      xmodmap ${xmodmaprc}
+      ${pkgs.xorg.xmodmap}/bin/xmodmap ${xmodmaprc}
     '';
     synaptics.enable = true;
     synaptics.palmDetect = true;

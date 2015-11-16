@@ -19,7 +19,6 @@ in {
     mupdf
     rxvt_unicode_with-plugins
     xsel
-    xlibs.xmodmap
   ];
 
   fonts = {
@@ -51,9 +50,9 @@ in {
           source "$HOME/.zprofile"
       fi
 
-      xsetroot -solid "#5f5f5f"
+      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#5f5f5f"
 
-      xset b off
+      ${pkgs.xorg.xset}/bin/xset b off
 
       export _JAVA_AWT_WM_NONREPARENTING=1
     '';
