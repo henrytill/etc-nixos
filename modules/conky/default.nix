@@ -28,6 +28,7 @@ in {
       '';
     };
     conkyrc = mkOption {
+      type = types.package;
       default = conkyrc-default;
       description = ''
         Derivation for conkyrc
