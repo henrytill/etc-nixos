@@ -45,6 +45,18 @@ with lib;
 
   services.openssh.enable = true;
 
+  systemd.user.services.emacs = {
+    description = "Emacs: The extensible, self-documenting text editor.";
+    enable = true;
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${pkgs.zsh}/bin/zsh -ic 'emacs --daemon'";
+      ExecStop = "${pkgs.zsh}/bin/zsh -ic 'emacsclient -e \(kill-emacs\)'";
+      Restart = "always";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
   time.timeZone = "America/New_York";
 
   users.extraUsers.ht = {
