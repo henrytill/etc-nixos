@@ -4,6 +4,18 @@ with lib;
 
 let
 
+  conkyrc = pkgs.writeScript "conkyrc" ''
+    out_to_console yes
+    out_to_x no
+    background no
+    update_interval 2
+    total_run_times 0
+    use_spacer none
+
+    TEXT
+    ''${addr wlp1s0}    ''${battery_percent BAT0}% (''${battery_time BAT0})    ''${acpitemp}°    ''${fs_free /}    $memperc% ($mem)    ''${time %a %b %d %I:%M %P}
+  '';
+
   xmodmaprc = pkgs.writeScript "xmodmaprc" ''
     remove mod4 = Super_L
     remove control = Control_L
@@ -37,6 +49,9 @@ in {
     "compress-force=zlib"
     "noatime"
   ];
+
+  ht.conky.enable = true;
+  ht.conky.conkyrc = conkyrc;
 
   networking.hostName = "thaumas";
 

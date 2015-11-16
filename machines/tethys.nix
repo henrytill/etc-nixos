@@ -12,6 +12,8 @@
 
   fileSystems."/".options = "defaults,noatime";
 
+  ht.conky.enable = true;
+
   networking.enableIPv6 = false;
   networking.hostName = "tethys";
 }

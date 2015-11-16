@@ -8,7 +8,6 @@ in {
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
-    conky
     (dmenu.override { enableXft = true; })
     dunst
     dwm-HEAD
