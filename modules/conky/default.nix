@@ -41,15 +41,10 @@ in {
       enable = true;
       environment.DISPLAY = ":0";
       script = ''
-        c_cmd="${pkgs.conky}/bin/conky"
-        x_cmd="${pkgs.xorg.xsetroot}/bin/xsetroot"
-
-        $c_cmd -c "${cfg.conkyrc}" \
-            | while read LINE; do $x_cmd -name "$LINE"; done &
+        ${pkgs.conky}/bin/conky -c ${cfg.conkyrc} \
+            | while read LINE; do ${pkgs.xorg.xsetroot}/bin/xsetroot -name "$LINE"; done &
       '';
-      serviceConfig = {
-        Type = "forking";
-      };
+      serviceConfig.Type = "forking";
       wantedBy = [ "default.target" ];
     };
   };
