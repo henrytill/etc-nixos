@@ -13,7 +13,9 @@ let
     use_spacer none
 
     TEXT
-    ''${addr wlp1s0}    ''${battery_percent BAT0}% (''${battery_time BAT0})    ''${acpitemp}°    ''${fs_free /}    $memperc% ($mem)    ''${time %a %b %d %I:%M %P}
+    ''${addr wlp1s0}   ''${battery_percent BAT0}% (''${battery_time BAT0})   \
+    ''${acpitemp}°   ''${fs_free /}   $memperc% ($mem)   \
+    ''${time %a %b %d %I:%M %P}
   '';
 
   xmodmaprc = pkgs.writeText "xmodmaprc" ''
