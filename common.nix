@@ -41,6 +41,11 @@ with lib;
 
   nix.useChroot = true;
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    firefox.enableGoogleTalkPlugin = true;
+  };
+
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
