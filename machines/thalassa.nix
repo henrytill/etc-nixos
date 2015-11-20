@@ -15,7 +15,7 @@
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
+    consoleUseXkbConfig = true;
     defaultLocale = "en_US.UTF-8";
   };
 
