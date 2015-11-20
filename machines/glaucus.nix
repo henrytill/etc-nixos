@@ -11,8 +11,7 @@
   boot.loader.grub.device = "/dev/sda";
 
   environment.systemPackages = with pkgs; [
-    jack2
-    qjackctl
+    jack2Full
   ];
 
   fileSystems."/".options = "defaults,noatime";
@@ -23,12 +22,14 @@
   musnix.enable = true;
   musnix.kernel.optimize = true;
   musnix.kernel.realtime = true;
+  musnix.kernel.packages = pkgs.linuxPackages_4_1_rt;
   musnix.rtirq.enable = true;
   musnix.rtirq.highList = "timer";
   musnix.soundcardPciId = "00:05.0";
 
-  programs.ssh.forwardX11 = true;
-  programs.ssh.setXAuthLocation = true;
+  nixpkgs.config.packageOverrides = super: let self = super.pkgs; in {
+    emacs = super.emacs24-nox;
+  };
 
   users.extraUsers.ht.extraGroups = [ "audio" ];
 }
