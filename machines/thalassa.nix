@@ -29,4 +29,6 @@
   networking.hostName = "thalassa";
 
   services.xserver.xkbOptions = "ctrl:nocaps";
+
+  virtualisation.virtualbox.host.enable = true;
 }
