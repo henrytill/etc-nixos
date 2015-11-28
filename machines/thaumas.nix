@@ -47,8 +47,6 @@ in {
 
   fileSystems."/".options = concatStringsSep "," [
     "ssd"
-    "space_cache"
-    "compress-force=zlib"
     "noatime"
   ];
 
