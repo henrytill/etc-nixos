@@ -8,7 +8,7 @@ in {
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
-    (dmenu.override { enableXft = true; })
+    dmenu
     dunst
     dwm-HEAD
     firefoxWrapper
