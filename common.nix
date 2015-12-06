@@ -25,6 +25,7 @@ with lib;
     nix-repl
     nodejs
     rlwrap
+    sbt
     scrot
     stow
     tmux
