@@ -37,8 +37,18 @@
 
   ht.conky.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 80 ];
   networking.hostName = "thalassa";
   networking.hostId = "91855dd5";
+
+  services.lighttpd.enable = true;
+  services.lighttpd.cgit = {
+    enable = true;
+    configText = ''
+      scan-path=/srv/git/
+      enable-git-config=1
+    '';
+  };
 
   services.xserver.xkbOptions = "ctrl:nocaps";
 
