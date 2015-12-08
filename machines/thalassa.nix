@@ -47,6 +47,7 @@
     configText = ''
       scan-path=/srv/git/
       enable-git-config=1
+      repository-sort=age
     '';
   };
 
