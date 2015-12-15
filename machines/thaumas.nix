@@ -45,7 +45,8 @@ in {
     };
 
   fileSystems."/".options = concatStringsSep "," [
-    "ssd"
+    "defaults"
+    "discard"
     "noatime"
   ];
 
