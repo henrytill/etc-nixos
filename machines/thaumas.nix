@@ -29,7 +29,6 @@ in {
   imports =
     [ ../hardware-configuration.nix
       ../desktop.nix
-      ../secrets/thaumas.nix
     ];
 
   boot =
