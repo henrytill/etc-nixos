@@ -9,6 +9,7 @@ with lib;
     aspell
     aspellDicts.en
     boot
+    ctags
     ed
     emacs
     file
@@ -43,8 +44,21 @@ with lib;
   nix.useChroot = true;
 
   nixpkgs.config = {
+
     allowUnfree = true;
+
     firefox.enableGoogleTalkPlugin = true;
+
+    packageOverrides = pkgs: with pkgs; {
+      emacs = pkgs.emacs.overrideDerivation (oldAttrs: {
+        postInstall = oldAttrs.postInstall + ''
+          rm $out/bin/ctags
+          rm $out/bin/etags
+          rm $out/share/man/man1/ctags.1.gz
+          rm $out/share/man/man1/etags.1.gz
+        '';
+      });
+    };
   };
 
   programs.zsh.enable = true;
