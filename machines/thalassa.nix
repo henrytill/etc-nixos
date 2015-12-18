@@ -16,6 +16,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cmus
     dropbox-cli
     pavucontrol
   ];
