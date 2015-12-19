@@ -44,6 +44,11 @@ in {
       loader.grub.enable = true;
     };
 
+  environment.pathsToLink = [ "/share/mozart" ];
+  environment.systemPackages = with pkgs; [
+    mozart-binary
+  ];
+
   fileSystems."/".options = concatStringsSep "," [
     "defaults"
     "discard"
