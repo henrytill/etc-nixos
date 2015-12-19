@@ -15,9 +15,11 @@
     forceImportRoot = false;
   };
 
+  environment.pathsToLink = [ "/share/mozart" ];
   environment.systemPackages = with pkgs; [
     cmus
     dropbox-cli
+    mozart-binary
     pavucontrol
   ];
 
