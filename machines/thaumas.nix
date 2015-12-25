@@ -64,11 +64,6 @@ in {
     HandlePowerKey=ignore
     HandleLidSwitch=suspend
   '';
-  services.redshift = {
-    enable = true;
-    latitude = "42";
-    longitude = "71";
-  };
   services.xserver = {
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xmodmap}/bin/xmodmap ${xmodmaprc}
