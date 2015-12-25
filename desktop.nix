@@ -52,7 +52,7 @@ in {
           source "$HOME/.zprofile"
       fi
 
-      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#5f5f5f"
+      ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#222222"
 
       ${pkgs.xorg.xset}/bin/xset b off
 
