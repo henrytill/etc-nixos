@@ -60,6 +60,8 @@ in {
 
   networking.hostName = "thaumas";
 
+  powerManagement.scsiLinkPolicy = "max_performance";
+
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
     HandleLidSwitch=suspend
