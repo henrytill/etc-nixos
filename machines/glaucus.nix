@@ -12,6 +12,7 @@
 
   environment.systemPackages = with pkgs; [
     jack2Full
+    rxvt_unicode.terminfo
   ];
 
   fileSystems."/".options = "defaults,noatime";
@@ -22,7 +23,7 @@
   musnix.enable = true;
   musnix.kernel.optimize = true;
   musnix.kernel.realtime = true;
-  musnix.kernel.packages = pkgs.linuxPackages_4_1_rt;
+  musnix.kernel.packages = pkgs.linuxPackages_latest_rt;
   musnix.rtirq.enable = true;
   musnix.rtirq.highList = "timer";
   musnix.soundcardPciId = "00:05.0";
