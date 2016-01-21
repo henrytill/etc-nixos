@@ -56,6 +56,8 @@ in {
     "noatime"
   ];
 
+  hardware.cpu.intel.updateMicrocode = true;
+
   ht.conky.enable = true;
   ht.conky.conkyrc = conkyrc;
 
