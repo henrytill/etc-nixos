@@ -10,11 +10,12 @@ let
     background no
     update_interval 2
     total_run_times 0
-    use_spacer none
+    use_spacer left
+    pad_percents 3
 
     TEXT
     ''${addr wlp1s0}   ''${battery_percent BAT0}% (''${battery_time BAT0})   \
-    ''${acpitemp}°   ''${fs_free /}   $memperc% ($mem)   \
+    ''${fs_free /}   ''$memperc% ($mem)   ''${cpu cpu1}%   ''${cpu cpu2}%   ''${acpitemp}°   \
     ''${time %a %b %d %I:%M %P}
   '';
 
