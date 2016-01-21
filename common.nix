@@ -15,6 +15,9 @@ with lib;
     file
     gnumake
     gnupg
+    haskellPackages.cabal-install
+    haskellPackages.cabal2nix
+    haskellPackages.ghc
     htop
     jdk
     jq
