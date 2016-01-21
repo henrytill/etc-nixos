@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
-let
-
-  haskellEnv = pkgs.haskellPackages.ghcWithHoogle (ps: with ps; [
-    cabal-install
-    cabal2nix
-  ]);
-
-in {
+{
   imports =
     [ ../hardware-configuration.nix
       ../desktop.nix
@@ -63,8 +56,6 @@ in {
   };
 
   services.xserver.xkbOptions = "ctrl:nocaps";
-
-  system.extraDependencies = [ haskellEnv ];
 
   users.extraUsers.ht.extraGroups = [ "docker" ];
 
