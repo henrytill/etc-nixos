@@ -22,6 +22,8 @@
     dropbox-cli
     mozart-binary
     pavucontrol
+    pciutils
+    youtube-dl
   ];
 
   fileSystems."/mnt/vms" = {
