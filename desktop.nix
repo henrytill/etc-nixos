@@ -16,6 +16,7 @@ in {
     graphviz
     i3lock
     libnotify
+    mpv
     mupdf
     rxvt_unicode_with-plugins
     xsel
