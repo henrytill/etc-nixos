@@ -7,6 +7,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "uas" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
