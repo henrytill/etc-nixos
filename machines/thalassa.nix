@@ -1,6 +1,21 @@
 { config, pkgs, ... }:
 
-{
+let
+
+  conkyrc = pkgs.writeText "conkyrc" ''
+    out_to_console yes
+    out_to_x no
+    background no
+    update_interval 2
+    total_run_times 0
+    use_spacer left
+    pad_percents 3
+
+    TEXT
+    ''${addr wlp2s0}   ''${fs_free /}   ''$memperc% ($mem)   ''${time %a %b %d %I:%M %P}
+  '';
+
+in {
   imports =
     [ ../hardware-configuration.nix
       ../desktop.nix
@@ -43,6 +58,7 @@
   };
 
   ht.conky.enable = true;
+  ht.conky.conkyrc = conkyrc;
 
   networking.firewall.allowedTCPPorts = [ 80 ];
   networking.hostName = "thalassa";
