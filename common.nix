@@ -28,6 +28,7 @@ with lib;
     ncdu
     nix-repl
     nodejs
+    pandoc
     rlwrap
     sbt
     scrot
