@@ -35,6 +35,7 @@ in {
   environment.systemPackages = with pkgs; [
     cmus
     dropbox-cli
+    idea.idea-community
     mozart-binary
     pavucontrol
     pciutils
