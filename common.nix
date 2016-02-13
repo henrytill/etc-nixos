@@ -56,10 +56,8 @@ with lib;
     packageOverrides = pkgs: with pkgs; {
       emacs = pkgs.emacs.overrideDerivation (oldAttrs: {
         postInstall = oldAttrs.postInstall + ''
-          rm $out/bin/ctags
-          rm $out/bin/etags
-          rm $out/share/man/man1/ctags.1.gz
-          rm $out/share/man/man1/etags.1.gz
+          rm $out/bin/{ctags,etags}
+          rm $out/share/man/man1/{ctags,etags}.1.gz
         '';
       });
     };
