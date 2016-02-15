@@ -6,6 +6,7 @@ with lib;
   imports = import ./modules/module-list.nix;
 
   environment.systemPackages = with pkgs; [
+    activator
     aspell
     aspellDicts.en
     boot
