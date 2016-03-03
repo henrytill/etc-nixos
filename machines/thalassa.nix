@@ -62,6 +62,7 @@ in {
   ht.conky.conkyrc = conkyrc;
 
   networking.firewall.allowedTCPPorts = [ 80 ];
+  networking.firewall.allowPing = true;
   networking.hostName = "thalassa";
   networking.hostId = "91855dd5";
 
