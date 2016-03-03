@@ -66,6 +66,7 @@ in {
   networking.hostName = "thalassa";
   networking.hostId = "91855dd5";
 
+  services.couchdb.enable = true;
   services.lighttpd.enable = true;
   services.lighttpd.cgit = {
     enable = true;
