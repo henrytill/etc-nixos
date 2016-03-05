@@ -10,6 +10,7 @@ with lib;
     aspell
     aspellDicts.en
     boot
+    cryptsetup
     ctags
     ed
     emacs
