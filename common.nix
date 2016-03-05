@@ -31,6 +31,7 @@ with lib;
     nix-repl
     nodejs
     pandoc
+    phantomjs2
     rlwrap
     sbt
     scrot
