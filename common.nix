@@ -22,7 +22,7 @@ with lib;
     haskellPackages.ghc
     htop
     jdk
-    jq
+    jshon
     leiningen
     lsof
     maven
