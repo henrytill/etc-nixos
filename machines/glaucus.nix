@@ -32,5 +32,8 @@
     emacs = super.emacs24-nox;
   };
 
+  programs.ssh.setXAuthLocation = true;
+  services.openssh.forwardX11 = true;
+
   users.extraUsers.ht.extraGroups = [ "audio" ];
 }
