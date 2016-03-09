@@ -46,7 +46,6 @@ in {
   services.xserver = {
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-    displayManager.desktopManagerHandlesLidAndPower = false;
     displayManager.lightdm.enable = true;
     displayManager.sessionCommands = ''
       if test -f "$HOME/.zprofile"; then
