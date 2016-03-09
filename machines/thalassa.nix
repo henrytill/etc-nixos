@@ -39,6 +39,7 @@ in {
     mozart-binary
     pavucontrol
     pciutils
+    tahoelafs
     youtube-dl
   ];
 
