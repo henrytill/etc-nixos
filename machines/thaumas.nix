@@ -50,11 +50,7 @@ in {
     mozart-binary
   ];
 
-  fileSystems."/".options = concatStringsSep "," [
-    "defaults"
-    "discard"
-    "noatime"
-  ];
+  fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 
   hardware.cpu.intel.updateMicrocode = true;
 

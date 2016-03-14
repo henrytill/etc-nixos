@@ -15,7 +15,7 @@
     rxvt_unicode.terminfo
   ];
 
-  fileSystems."/".options = "defaults,noatime";
+  fileSystems."/".options = [ "defaults" "noatime" ];
 
   networking.enableIPv6 = false;
   networking.hostName = "glaucus";
