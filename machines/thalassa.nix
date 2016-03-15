@@ -40,6 +40,7 @@ in {
     pavucontrol
     pciutils
     tahoelafs
+    v4l_utils
     youtube-dl
   ];
 
