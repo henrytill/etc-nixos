@@ -8,6 +8,7 @@ in {
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
+    chromium
     dmenu
     dunst
     dwm-HEAD
