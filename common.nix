@@ -36,7 +36,6 @@ with lib;
     sbt
     scrot
     stow
-    (texlive.combine { inherit (pkgs.texlive) scheme-basic collection-fontsrecommended; })
     tmux
     tree
     unzip
