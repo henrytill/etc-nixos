@@ -48,6 +48,8 @@ with lib;
     (pinentry.override { gtk2 = null; })
   ]);
 
+  environment.variables.JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
+
   nix.useChroot = true;
 
   nixpkgs.config = {
