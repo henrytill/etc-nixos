@@ -21,6 +21,7 @@ with lib;
     haskellPackages.cabal2nix
     haskellPackages.ghc
     htop
+    ipfs
     jdk
     jshon
     leiningen
