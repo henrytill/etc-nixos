@@ -20,6 +20,7 @@ with lib;
     haskellPackages.cabal-install
     haskellPackages.cabal2nix
     haskellPackages.ghc
+    haskellPackages.hasktags
     htop
     ipfs
     jdk
