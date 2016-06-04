@@ -31,6 +31,7 @@ in {
     mpv
     mupdf
     rxvt_unicode_with-plugins
+    slack
     texliveEnv
     xsel
   ];
