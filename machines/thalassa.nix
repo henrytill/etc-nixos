@@ -23,7 +23,7 @@ in {
 
   boot.initrd.availableKernelModules = [ "uas" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.gummiboot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs = {
@@ -35,11 +35,8 @@ in {
   environment.systemPackages = with pkgs; [
     cmus
     dropbox-cli
-    idea.idea-community
-    mozart-binary
     pavucontrol
     pciutils
-    tahoelafs
     v4l_utils
     youtube-dl
   ];
@@ -68,7 +65,6 @@ in {
   networking.hostName = "thalassa";
   networking.hostId = "91855dd5";
 
-  services.couchdb.enable = true;
   services.lighttpd.enable = true;
   services.lighttpd.cgit = {
     enable = true;
