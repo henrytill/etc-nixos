@@ -12,7 +12,6 @@ with lib;
     boot
     cryptsetup
     ctags
-    ed
     emacs
     file
     gnumake
@@ -20,9 +19,8 @@ with lib;
     haskellPackages.cabal-install
     haskellPackages.cabal2nix
     haskellPackages.ghc
-    haskellPackages.hasktags
+    # haskellPackages.hasktags
     htop
-    ipfs
     jdk
     jshon
     leiningen
@@ -32,7 +30,7 @@ with lib;
     ncdu
     nix-repl
     nodejs
-    pandoc
+    # pandoc
     phantomjs2
     rlwrap
     sbt
@@ -52,7 +50,7 @@ with lib;
 
   environment.variables.JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
 
-  nix.useChroot = true;
+  nix.useSandbox = true;
 
   nixpkgs.config = {
 
