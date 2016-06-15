@@ -3,7 +3,7 @@
 {
   imports =
     [ ../hardware-configuration.nix
-      ../headless.nix
+      ../common.nix
     ];
 
   boot.cleanTmpDir = true;

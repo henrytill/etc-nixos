@@ -6,34 +6,20 @@ with lib;
   imports = import ./modules/module-list.nix;
 
   environment.systemPackages = with pkgs; [
-    activator
     aspell
     aspellDicts.en
-    boot
     cryptsetup
     ctags
     emacs
     file
     gnumake
     gnupg
-    haskellPackages.cabal-install
-    haskellPackages.cabal2nix
-    haskellPackages.ghc
-    # haskellPackages.hasktags
     htop
-    jdk
-    jshon
-    leiningen
     lsof
-    maven
     mr
     ncdu
     nix-repl
-    nodejs
-    # pandoc
-    phantomjs2
     rlwrap
-    sbt
     scrot
     stow
     tmux
@@ -47,8 +33,6 @@ with lib;
     (gitAndTools.gitFull.override { guiSupport = false; })
     (pinentry.override { gtk2 = null; })
   ]);
-
-  environment.variables.JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
 
   nix.useSandbox = true;
 

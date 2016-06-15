@@ -18,7 +18,9 @@ let
 in {
   imports =
     [ ../hardware-configuration.nix
+      ../common.nix
       ../desktop.nix
+      ../development.nix
     ];
 
   boot.initrd.availableKernelModules = [ "uas" ];
@@ -31,7 +33,6 @@ in {
     forceImportRoot = false;
   };
 
-  environment.pathsToLink = [ "/share/mozart" ];
   environment.systemPackages = with pkgs; [
     cmus
     dropbox-cli
@@ -60,7 +61,7 @@ in {
   ht.conky.enable = true;
   ht.conky.conkyrc = conkyrc;
 
-  networking.firewall.allowedTCPPorts = [ 80 3449 ];
+  networking.firewall.allowedTCPPorts = [ 80 3000 3449 ];
   networking.firewall.allowPing = true;
   networking.hostName = "thalassa";
   networking.hostId = "91855dd5";

@@ -29,7 +29,9 @@ let
 in {
   imports =
     [ ../hardware-configuration.nix
+      ../common.nix
       ../desktop.nix
+      ../development.nix
     ];
 
   boot =
@@ -44,11 +46,6 @@ in {
       loader.grub.device = "/dev/sda";
       loader.grub.enable = true;
     };
-
-  environment.pathsToLink = [ "/share/mozart" ];
-  environment.systemPackages = with pkgs; [
-    mozart-binary
-  ];
 
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 

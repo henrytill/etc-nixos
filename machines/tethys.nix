@@ -3,7 +3,9 @@
 {
   imports =
     [ ../hardware-configuration.nix
+      ../common.nix
       ../desktop.nix
+      ../development.nix
     ];
 
   boot.cleanTmpDir = true;
