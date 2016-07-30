@@ -76,4 +76,8 @@ in {
     defaults.pcm.!card PCH
     defaults.pcm.!device 0
   '';
+
+  users.extraUsers.ht.extraGroups = [ "docker" ];
+
+  virtualisation.docker.enable = true;
 }
