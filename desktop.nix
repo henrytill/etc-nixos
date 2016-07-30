@@ -49,6 +49,8 @@ in {
       ultimate.enable = true;
     };
     fonts = with pkgs; [
+      fira
+      fira-mono
       mplus-outline-fonts
     ];
   };
