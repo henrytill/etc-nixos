@@ -11,5 +11,7 @@
     jshon
     # pandoc
     rustc
+    rustfmt
+    rustracer
   ];
 }
