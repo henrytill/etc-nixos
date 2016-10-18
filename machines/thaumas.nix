@@ -19,6 +19,10 @@ let
     ''${time %a %b %d %I:%M %P}
   '';
 
+  linux_chromebook = pkgs.linux.override {
+    extraConfig = "CHROME_PLATFORMS y\n";
+  };
+
   xmodmaprc = pkgs.writeText "xmodmaprc" ''
     remove mod4 = Super_L
     remove control = Control_L
@@ -34,18 +38,19 @@ in {
       ../development.nix
     ];
 
-  boot =
-    let
-      linux_chromebook = pkgs.linux.override
-        { extraConfig = "CHROME_PLATFORMS y\n"; };
-    in rec {
-      cleanTmpDir = true;
-      kernelPackages = pkgs.recurseIntoAttrs
-        (pkgs.linuxPackagesFor linux_chromebook kernelPackages);
-      kernelParams = [ "modprobe.blacklist=ehci_pci" ];
-      loader.grub.device = "/dev/sda";
-      loader.grub.enable = true;
+  boot = rec {
+    cleanTmpDir = true;
+    kernel.sysctl = {
+      "vm.laptop_mode" = 1;
+      "vm.swappiness" = 10;
+      "vm.vfs_cache_pressure" = 50;
+      "vm.min_free_kbytes" = 8192;
     };
+    kernelPackages = pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_chromebook);
+    kernelParams = [ "modprobe.blacklist=ehci_pci" ];
+    loader.grub.device = "/dev/sda";
+    loader.grub.enable = true;
+  };
 
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 
@@ -58,10 +63,15 @@ in {
 
   powerManagement.scsiLinkPolicy = "max_performance";
 
+  programs.ssh.setXAuthLocation = true;
+
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
     HandleLidSwitch=suspend
   '';
+
+  services.openssh.forwardX11 = true;
+
   services.xserver = {
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xmodmap}/bin/xmodmap ${xmodmaprc}
@@ -76,6 +86,15 @@ in {
     defaults.pcm.!card PCH
     defaults.pcm.!device 0
   '';
+
+  systemd.services.drop_caches = {
+    description = "drop caches";
+    script = "sync; echo 3 > /proc/sys/vm/drop_caches";
+    startAt = "hourly";
+    serviceConfig = {
+      User = "root";
+    };
+  };
 
   users.extraUsers.ht.extraGroups = [ "docker" ];
 
