@@ -16,6 +16,7 @@ with lib;
     gnupg
     htop
     lsof
+    mercurial
     mr
     ncdu
     nix-repl
@@ -27,6 +28,7 @@ with lib;
     unzip
     vim
     wget
+    zeal
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
   ] else [
