@@ -14,7 +14,7 @@ let
     pad_percents 3
 
     TEXT
-    ''${addr wlp1s0}   ''${battery_percent BAT0}% (''${battery_time BAT0})   \
+    ''${addr wlan0}   ''${battery_percent BAT0}% (''${battery_time BAT0})   \
     ''${fs_free /}   ''$memperc% ($mem)   ''${cpu cpu1}%   ''${cpu cpu2}%   ''${acpitemp}°   \
     ''${time %a %b %d %I:%M %P}
   '';
