@@ -37,20 +37,12 @@ in {
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
-    fontconfig = {
-      antialias = true;
-      enable = true;
-      hinting.autohint = false;
-      hinting.enable = true;
-      hinting.style = "slight";
-      includeUserConf = false;
-      subpixel.lcdfilter = "default";
-      subpixel.rgba = "rgb";
-      ultimate.enable = true;
-    };
+    fontconfig.ultimate.enable = true;
     fonts = with pkgs; [
       fira
       fira-mono
+      font-droid
+      inconsolata
       mplus-outline-fonts
     ];
   };
