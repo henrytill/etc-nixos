@@ -19,7 +19,7 @@ let
     ''${time %a %b %d %I:%M %P}
   '';
 
-  linux_chromebook = pkgs.linux.override {
+  linux_chromebook = pkgs.linux_latest.override {
     extraConfig = "CHROME_PLATFORMS y\n";
   };
 
@@ -42,9 +42,6 @@ in {
     cleanTmpDir = true;
     kernel.sysctl = {
       "vm.laptop_mode" = 1;
-      "vm.swappiness" = 10;
-      "vm.vfs_cache_pressure" = 50;
-      "vm.min_free_kbytes" = 8192;
     };
     kernelPackages = pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_chromebook);
     kernelParams = [ "modprobe.blacklist=ehci_pci" ];
