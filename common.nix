@@ -10,6 +10,7 @@ with lib;
     aspellDicts.en
     cryptsetup
     ctags
+    darcs
     emacs
     file
     gnumake
@@ -26,15 +27,16 @@ with lib;
     tmux
     tree
     unzip
-    vim
+    vimNox
     wget
-    zeal
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
   ] else [
     (gitAndTools.gitFull.override { guiSupport = false; })
     (pinentry.override { gtk2 = null; })
   ]);
+
+  environment.variables.EDITOR = "vim";
 
   nix.useSandbox = true;
 

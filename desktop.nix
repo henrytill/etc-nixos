@@ -31,12 +31,18 @@ in {
     rxvt_unicode_with-plugins
     texliveEnv
     xsel
+    zeal
   ];
 
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
-    fontconfig.ultimate.enable = true;
+    fontconfig = {
+      defaultFonts.monospace = [ "Inconsolata" ];
+      defaultFonts.sansSerif = [ "Droid Sans" ];
+      defaultFonts.serif = [ "Droid Serif" ];
+      ultimate.enable = true;
+    };
     fonts = with pkgs; [
       fira
       fira-mono

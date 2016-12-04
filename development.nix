@@ -7,8 +7,10 @@
     haskellPackages.cabal-install
     haskellPackages.cabal2nix
     haskellPackages.ghc
-    # haskellPackages.hasktags
+    haskellPackages.hasktags
+    haskellPackages.hlint
     jshon
+    nodejs
     # pandoc
     rustc
     rustfmt
