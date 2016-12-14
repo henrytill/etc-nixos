@@ -38,17 +38,14 @@ in {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fontconfig = {
-      defaultFonts.monospace = [ "Inconsolata" ];
-      defaultFonts.sansSerif = [ "Droid Sans" ];
-      defaultFonts.serif = [ "Droid Serif" ];
+      defaultFonts.monospace = [ "Fira Mono" ];
+      defaultFonts.sansSerif = [ "Fira Sans" ];
       ultimate.enable = true;
     };
     fonts = with pkgs; [
       fira
       fira-mono
       font-droid
-      inconsolata
-      mplus-outline-fonts
     ];
   };
 
