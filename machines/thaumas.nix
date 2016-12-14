@@ -49,6 +49,8 @@ in {
     loader.grub.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [ debootstrap ];
+
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -97,5 +99,8 @@ in {
 
   users.extraUsers.ht.extraGroups = [ "docker" ];
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    lxc.enable = true;
+  };
 }
