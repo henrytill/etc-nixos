@@ -19,10 +19,6 @@ let
     ''${time %a %b %d %I:%M %P}
   '';
 
-  linux_chromebook = pkgs.linux_latest.override {
-    extraConfig = "CHROME_PLATFORMS y\n";
-  };
-
   xmodmaprc = pkgs.writeText "xmodmaprc" ''
     remove mod4 = Super_L
     remove control = Control_L
@@ -43,7 +39,6 @@ in {
     kernel.sysctl = {
       "vm.laptop_mode" = 1;
     };
-    kernelPackages = pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_chromebook);
     kernelParams = [ "modprobe.blacklist=ehci_pci" ];
     loader.grub.device = "/dev/sda";
     loader.grub.enable = true;
@@ -87,20 +82,4 @@ in {
     defaults.pcm.!card PCH
     defaults.pcm.!device 0
   '';
-
-  systemd.services.drop_caches = {
-    description = "drop caches";
-    script = "sync; echo 3 > /proc/sys/vm/drop_caches";
-    startAt = "hourly";
-    serviceConfig = {
-      User = "root";
-    };
-  };
-
-  users.extraUsers.ht.extraGroups = [ "docker" ];
-
-  virtualisation = {
-    docker.enable = true;
-    lxc.enable = true;
-  };
 }
