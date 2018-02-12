@@ -6,12 +6,12 @@
     coq
     haskellPackages.cabal-install
     haskellPackages.cabal2nix
+    haskellPackages.darcs
     haskellPackages.ghc
-    haskellPackages.hasktags
-    haskellPackages.hlint
+    haskellPackages.stack
+    haskellPackages.stylish-haskell
+    haskellPackages.threadscope
     jshon
-    nodejs
-    # pandoc
     rustc
     rustfmt
     rustracer

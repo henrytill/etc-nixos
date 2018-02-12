@@ -21,9 +21,6 @@ in {
     dmenu
     dunst
     dwm-HEAD
-    firefoxWrapper
-    ghostscript
-    graphviz
     i3lock
     libnotify
     mpv

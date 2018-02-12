@@ -27,7 +27,7 @@ with lib;
     tmux
     tree
     unzip
-    vimNox
+    vim
     wget
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull
@@ -43,8 +43,6 @@ with lib;
   nixpkgs.config = {
 
     allowUnfree = true;
-
-    firefox.enableGoogleTalkPlugin = true;
 
     packageOverrides = pkgs: with pkgs; {
       emacs = pkgs.emacs.overrideDerivation (oldAttrs: {
