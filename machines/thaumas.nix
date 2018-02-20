@@ -44,14 +44,16 @@ in {
     loader.grub.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ debootstrap ];
-
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 
   hardware.cpu.intel.updateMicrocode = true;
 
   ht.conky.enable = true;
   ht.conky.conkyrc = conkyrc;
+
+  musnix.kernel.optimize = true;
+  musnix.kernel.realtime = true;
+  musnix.kernel.packages = pkgs.linuxPackages_latest_rt;
 
   networking.hostName = "thaumas";
 
@@ -65,8 +67,6 @@ in {
   '';
 
   services.openssh.forwardX11 = true;
-
-  services.postfix.enable = true;
 
   services.xserver = {
     displayManager.sessionCommands = ''
@@ -82,4 +82,6 @@ in {
     defaults.pcm.!card PCH
     defaults.pcm.!device 0
   '';
+
+  users.extraUsers.ht.extraGroups = [ "audio" ];
 }
