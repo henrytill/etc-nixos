@@ -27,7 +27,7 @@ with lib;
     tmux
     tree
     unzip
-    vim
+    vim_configurable
     wget
   ] ++ (if config.services.xserver.enable then [
     gitAndTools.gitFull

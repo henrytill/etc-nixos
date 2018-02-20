@@ -4,17 +4,6 @@ let
 
   dwm-HEAD = pkgs.callPackage ./pkgs/dwm {};
 
-  texliveEnv = pkgs.texlive.combine {
-    inherit (pkgs.texlive)
-    scheme-medium
-    collection-fontsextra
-    collection-fontsrecommended
-    enumitem
-    fontaxes
-    mweights
-    titlesec;
-  };
-
 in {
   environment.systemPackages = with pkgs; [
     chromium
@@ -25,9 +14,8 @@ in {
     libnotify
     mpv
     mupdf
-    rxvt_unicode_with-plugins
-    texliveEnv
     xsel
+    xterm
     zeal
   ];
 
