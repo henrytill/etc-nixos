@@ -45,11 +45,22 @@ with lib;
     allowUnfree = true;
 
     packageOverrides = pkgs: with pkgs; {
+
       emacs = pkgs.emacs.overrideDerivation (oldAttrs: {
         postInstall = oldAttrs.postInstall + ''
           rm $out/bin/{ctags,etags}
           rm $out/share/man/man1/{ctags,etags}.1.gz
         '';
+      });
+
+      connman = pkgs.connman.overrideDerivation (oldAttr: {
+        patches = [
+          (pkgs.fetchpatch {
+            name = "header-include.patch";
+            url = "https://git.kernel.org/pub/scm/network/connman/connman.git/patch/?id=bdfb3526466f8fb8f13d9259037d8f42c782ce24";
+            sha256 = "0q6ysy2xvvcmkcbw1y29x90g7g7kih7v95k1xbxdcxkras5yl8nf";
+          })
+        ];
       });
     };
   };
