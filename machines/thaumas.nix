@@ -44,6 +44,11 @@ in {
     loader.grub.enable = true;
   };
 
+  environment.systemPackages = with pkgs;
+    [ alsaUtils
+      ncmpc
+    ];
+
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -51,15 +56,22 @@ in {
   ht.conky.enable = true;
   ht.conky.conkyrc = conkyrc;
 
-  musnix.kernel.optimize = true;
-  musnix.kernel.realtime = true;
-  musnix.kernel.packages = pkgs.linuxPackages_latest_rt;
-
   networking.hostName = "thaumas";
 
   powerManagement.scsiLinkPolicy = "max_performance";
 
   programs.ssh.setXAuthLocation = true;
+
+  services.mpd = {
+    enable = true;
+    extraConfig = ''
+      audio_output {
+        type "alsa"
+        name "analog out"
+        device "hw:1,0"
+      }
+    '';
+  };
 
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
@@ -79,9 +91,15 @@ in {
   };
 
   sound.extraConfig = ''
-    defaults.pcm.!card PCH
-    defaults.pcm.!device 0
+    pcm.!default {
+      type hw
+      card 1
+    }
+    ctl.!default {
+      type hw
+      card 1
+    }
   '';
 
-  users.extraUsers.ht.extraGroups = [ "audio" ];
+  users.extraUsers.ht.extraGroups = [ "audio" "mpd" ];
 }

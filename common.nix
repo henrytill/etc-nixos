@@ -8,13 +8,11 @@ with lib;
   environment.systemPackages = with pkgs; [
     aspell
     aspellDicts.en
-    cryptsetup
     ctags
-    darcs
-    emacs
     file
     gnumake
     gnupg
+    git
     htop
     lsof
     mercurial
@@ -29,12 +27,7 @@ with lib;
     unzip
     vim_configurable
     wget
-  ] ++ (if config.services.xserver.enable then [
-    gitAndTools.gitFull
-  ] else [
-    (gitAndTools.gitFull.override { guiSupport = false; })
-    (pinentry.override { gtk2 = null; })
-  ]);
+  ];
 
   environment.variables.EDITOR = "vim";
 
@@ -45,13 +38,6 @@ with lib;
     allowUnfree = true;
 
     packageOverrides = pkgs: with pkgs; {
-
-      emacs = pkgs.emacs.overrideDerivation (oldAttrs: {
-        postInstall = oldAttrs.postInstall + ''
-          rm $out/bin/{ctags,etags}
-          rm $out/share/man/man1/{ctags,etags}.1.gz
-        '';
-      });
 
       connman = pkgs.connman.overrideDerivation (oldAttr: {
         patches = [
@@ -65,6 +51,7 @@ with lib;
     };
   };
 
+  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   programs.zsh.enable = true;
 
   services.openssh.enable = true;

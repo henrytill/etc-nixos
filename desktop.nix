@@ -23,14 +23,12 @@ in {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fontconfig = {
-      defaultFonts.monospace = [ "Fira Mono" ];
-      defaultFonts.sansSerif = [ "Fira Sans" ];
+      defaultFonts.monospace = [ "LiberationMono" ];
+      defaultFonts.sansSerif = [ "LiberationSans" ];
       ultimate.enable = true;
     };
     fonts = with pkgs; [
-      fira
-      fira-mono
-      font-droid
+      liberation_ttf
     ];
   };
 

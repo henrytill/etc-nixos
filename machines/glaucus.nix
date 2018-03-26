@@ -28,10 +28,6 @@
   musnix.rtirq.highList = "timer";
   musnix.soundcardPciId = "00:05.0";
 
-  nixpkgs.config.packageOverrides = super: let self = super.pkgs; in {
-    emacs = super.emacs24-nox;
-  };
-
   programs.ssh.setXAuthLocation = true;
   services.openssh.forwardX11 = true;
 
