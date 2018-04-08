@@ -92,14 +92,8 @@ in {
   };
 
   sound.extraConfig = ''
-    pcm.!default {
-      type hw
-      card 1
-    }
-    ctl.!default {
-      type hw
-      card 1
-    }
+    defaults.pcm.!card PCH
+    defaults.pcm.!device 0
   '';
 
   users.extraUsers.ht.extraGroups = [ "audio" "mpd" ];
