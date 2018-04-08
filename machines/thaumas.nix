@@ -48,6 +48,7 @@ in {
   environment.systemPackages = with pkgs;
     [ alsaUtils
       ncmpc
+      spotify
     ];
 
   fileSystems."/".options = [ "defaults" "discard" "noatime" ];
