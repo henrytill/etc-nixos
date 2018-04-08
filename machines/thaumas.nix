@@ -39,6 +39,7 @@ in {
     kernel.sysctl = {
       "vm.laptop_mode" = 1;
     };
+    kernelPackages = pkgs.linuxPackages_4_14_rt;
     kernelParams = [ "modprobe.blacklist=ehci_pci" ];
     loader.grub.device = "/dev/sda";
     loader.grub.enable = true;
