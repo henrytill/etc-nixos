@@ -51,6 +51,8 @@ with lib;
     };
   };
 
+  nixpkgs.overlays = [ (import ./modules/musnix/default.nix) ];
+
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   programs.zsh.enable = true;
 

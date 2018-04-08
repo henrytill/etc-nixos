@@ -1,4 +1,3 @@
 [
   ./conky
-  ./musnix
 ]
